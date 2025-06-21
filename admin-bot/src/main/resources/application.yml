@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: admin-bot
+
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
+telegram:
+  username: ${TELEGRAM_USERNAME}
+  token: ${TELEGRAM_TOKEN}
+  creator-id: ${TELEGRAM_CREATOR_ID:673740936}

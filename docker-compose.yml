@@ -1,0 +1,50 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 9mnKYNN7CP
+      POSTGRES_DB: questBot
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/database-init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - quest-bot-network
+
+  admin-bot:
+    build:
+      context: ./admin-bot
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/questBot
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: 9mnKYNN7CP
+      TELEGRAM_TOKEN: 7863284024:AAF2ue8TqVtW3cZt8gagJapKGli0Dpx2gAo
+      TELEGRAM_USERNAME: my_deliver_bot
+    depends_on:
+      - postgres
+    ports:
+      - "8081:8080"
+    networks:
+      - quest-bot-network
+
+  user-bot:
+    build:
+      context: ./user-bot
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/questBot
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: 9mnKYNN7CP
+      TELEGRAM_TOKEN: 7763120417:AAEom7B2g71A-Ks5pcfRSoQDlldZcE86s-A
+      TELEGRAM_USERNAME: i_mart0_bot
+    depends_on:
+      - postgres
+    ports:
+      - "8082:8080"
+    networks:
+      - quest-bot-network
+
+networks:
+  quest-bot-network:
+    driver: bridge
