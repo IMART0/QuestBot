@@ -34,8 +34,8 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/questBot
       SPRING_DATASOURCE_USERNAME: admin
       SPRING_DATASOURCE_PASSWORD: 9mnKYNN7CP
-      TELEGRAM_TOKEN: 7863284024:AAF2ue8TqVtW3cZt8gagJapKGli0Dpx2gAo
-      TELEGRAM_USERNAME: my_deliver_bot
+      TELEGRAM_TOKEN: asdasd
+      TELEGRAM_USERNAME: asdasd
     depends_on:
       - postgres
     ports:
@@ -50,8 +50,8 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/questBot
       SPRING_DATASOURCE_USERNAME: admin
       SPRING_DATASOURCE_PASSWORD: 9mnKYNN7CP
-      TELEGRAM_TOKEN: 7763120417:AAEom7B2g71A-Ks5pcfRSoQDlldZcE86s-A
-      TELEGRAM_USERNAME: i_mart0_bot
+      TELEGRAM_TOKEN: asda
+      TELEGRAM_USERNAME: asdasdasd
     depends_on:
       - postgres
     ports:
