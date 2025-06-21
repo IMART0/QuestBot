@@ -13,6 +13,20 @@ services:
     networks:
       - quest-bot-network
 
+  admin-api:
+    build:
+      context: ./admin-api
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/questBot
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: 9mnKYNN7CP
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - quest-bot-network
+
   admin-bot:
     build:
       context: ./admin-bot

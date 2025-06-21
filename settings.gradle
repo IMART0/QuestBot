@@ -1,2 +1,2 @@
 rootProject.name = 'QuestBot'
-include 'admin-bot', 'user-bot'
+include 'admin-bot', 'user-bot', 'admin-api'

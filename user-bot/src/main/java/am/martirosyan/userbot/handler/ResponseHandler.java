@@ -46,6 +46,9 @@ public class ResponseHandler {
             } else {
                 User user = userRepository.findByChatId(chatId);
                 messageSender.sendMessage(chatId, BotMessage.MESSAGE_FOR_COMPLETED_QUIZ(name, user.getPoints()));
+                user.setCompletedQuiz(true);
+                userRepository.save(user);
+                userAnswers.remove(chatId);
             }
         }
     }
@@ -75,6 +78,9 @@ public class ResponseHandler {
         if (question == null) {
             User user = userRepository.findByChatId(chatId);
             messageSender.sendMessage(chatId, BotMessage.MESSAGE_FOR_COMPLETED_QUIZ(name, user.getPoints()));
+            user.setCompletedQuiz(true);
+            userRepository.save(user);
+            userAnswers.remove(chatId);
             return;
         }
 
